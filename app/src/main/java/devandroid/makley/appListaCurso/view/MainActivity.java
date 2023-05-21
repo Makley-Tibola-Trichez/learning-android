@@ -1,8 +1,10 @@
-package devandroid.makley.appListaCurso;
+package devandroid.makley.appListaCurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import devandroid.makley.appListaCurso.R;
 
 public class MainActivity extends AppCompatActivity {
 
