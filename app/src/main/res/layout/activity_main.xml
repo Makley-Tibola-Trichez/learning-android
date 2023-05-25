@@ -99,6 +99,32 @@
         android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefone"
-        tools:layout_editor_absoluteX="14dp" />
+        app:layout_constraintVertical_bias="0.989"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefone"
+        app:layout_constraintVertical_bias="0.188" />
+
+    <TextView
+        android:id="@+id/txtListaSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Selecione um curso..."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
