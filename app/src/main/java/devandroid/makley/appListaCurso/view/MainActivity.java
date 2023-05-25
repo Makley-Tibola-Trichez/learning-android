@@ -2,21 +2,27 @@ package devandroid.makley.appListaCurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroid.makley.appListaCurso.R;
+import devandroid.makley.appListaCurso.controller.CursoController;
 import devandroid.makley.appListaCurso.controller.PessoaController;
 import devandroid.makley.appListaCurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     PessoaController pessoaController;
+    CursoController cursoController;
+    List<String> nomesDosCursos;
     Pessoa pessoa;
     EditText editPrimeiroNome;
     EditText editSobrenome;
@@ -27,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
     Button btnFinalizar;
 
 
+
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         pessoaController = new PessoaController(MainActivity.this);
 
@@ -57,6 +64,20 @@ public class MainActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+
+        //Adapter
+        //Layout
+        //Injetar o Adapter ao Spinner - a lista gerada
+
+        cursoController = new CursoController();
+        nomesDosCursos = cursoController.dadosParaSpinner();
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.dadosParaSpinner());
+
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);;
+        spinner.setAdapter(adapter);
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
